@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap');
+
+        @font-face {
+      font-family: 'Vrdznagir';
+      src: url('Vrdznagir.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("00dc4caedb6dd56dce7b43451ee55dd5.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+    }
+
+    .invitation {
+      max-width: 600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .invitation img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* --- New: overlay wrapper for the main image + invitation text --- */
+    .hero-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .hero-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .hero-overlay-text {
+      position: absolute;
+      left: 50%;
+      bottom: 8%;
+      transform: translateX(-50%);
+      width: 88%;
+      text-align: center;
+      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
+      color: #fdf6e3;
+      text-shadow:
+        0 1px 3px rgba(0,0,0,0.75),
+        0 2px 10px rgba(0,0,0,0.55);
+    }
+
+    .hero-overlay-text .invite-lead {
+      font-size: 15px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f4e2a8;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .hero-overlay-text .invite-main {
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: 600;
+      color: #fffdf7;
+    }
+
+    .hero-overlay-text .invite-main .highlight {
+      font-family: 'Great Vibes', 'Noto Sans Armenian', cursive;
+      font-size: 34px;
+      color: #f4e87c;
+      display: inline-block;
+      margin: 0 4px;
+    }
+
+    .hero-overlay-text .invite-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f4e87c, transparent);
+      margin: 12px auto;
+    }
+    /* --- end new styles --- */
+
+    .date-section {
+      text-align: center;
+      padding-bottom: 20px;
+      max-width: 600px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .baptism-date {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: #2c2c2c;
+      margin-bottom: 10px;
+    }
+
+    .calendar {
+      margin-top: 30px;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .calendar .month {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+    }
+
+    .calendar .weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 420px;
+      margin: 0 auto 10px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+    }
+
+    .calendar .dates {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .dates > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;
+    }
+
+    .heart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heart-svg {
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      top: 5%;
+      left: 2%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .heart-text {
+      position: relative;
+      z-index: 1;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      margin: 40px 0 5px;
+    }
+
+    .small-text {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .couple-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 40px;
+      font-weight: 700;
+      text-align: center;
+      color: #333;
+    }
+
+    .info {
+      font-family:'Vrdznagir';
+      font-size: 25px;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    .venue-invitation {
+      background: white;
+      width: 100%;
+      max-width: 600px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+    }
+
+    .venue-invitation::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d4af37, #f4e87c, #d4af37);
+    }
+
+    .icon-img {
+      display: block;
+      margin: 0 auto 25px;
+      max-width: 80px;
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .ceremony-title, .reception-title {
+      font-family: 'Vrdznagir';
+      font-size: 40px;
+      font-style: italic;
+      color: #8b7355;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .venue-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 5px;
+      letter-spacing: 2px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 300;
+    }
+
+    .address {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+    }
+
+    .time {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 5px;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 600;
+    }
+
+    .divider {
+      height: 2px;
+      margin: 40px 0;
+    }
+
+    a.map-link {
+      text-decoration: none;
+      color: #d4af37;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+    }
+
+    a.map-link svg {
+      fill: #d4af37;
+      width: 16px;
+      height: 16px;
+    }
+
+    .full-img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .closing-text {
+      font-family: 'Vrdznagir';
+      font-size: 35px;
+      font-style: italic;
+      color: #8b7355;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    .heart-outline {
+      vertical-align: middle;
+      margin-left: 8px;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+ .script {
+  font-family: 'Vrdznagir';
+  font-size: 18px;
+  margin: 40px 0 5px;
+  text-align: center;
+}
+
+    /* --- Upgraded final photo & closing message section --- */
+    .final-card {
+      background: transparent;
+      padding: 28px;
+      border: none;
+      box-shadow: none;
+      position: relative;
+    }
+
+    .final-card::before {
+      content: none;
+    }
+
+    .final-frame {
+      position: relative;
+      padding: 0;
+      border-radius: 16px;
+      background: white;
+      overflow: hidden;
+    }
+
+    .final-frame.photo-standalone {
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .final-frame::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #d4af37, #f4e87c, #d4af37);
+      z-index: 1;
+    }
+
+    .final-frame::after,
+    .final-frame .corner-tl,
+    .final-frame .corner-br {
+      content: '';
+    }
+
+    .final-frame img.full-img {
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .final-closing {
+      margin-top: 0;
+    }
+
+    .final-closing .closing-divider {
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      margin: 0 auto 16px;
+    }
+
+    .final-closing .closing-text {
+      font-size: 34px;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .final-closing .closing-sub {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 500;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b8975a;
+      margin-top: 6px;
+    }
+    /* --- end upgraded section --- */
+
+    /* --- Reveal-on-scroll animations for all cards --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.reveal-scale {
+      transform: translateY(30px) scale(0.94);
+    }
+
+    .reveal.reveal-scale.visible {
+      transform: translateY(0) scale(1);
+    }
+
+    /* gentle heartbeat for heart icons */
+    .heart-outline,
+    .heart-svg {
+      animation: heartbeat 2.4s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.15); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.1); }
+      60% { transform: scale(1); }
+    }
+
+   
+    /* --- Invitation intro text --- */
+    .invite-intro {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      padding: 10px 30px 30px;
+      box-sizing: border-box;
+      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
+      color: #4a3f30;
+    }
+
+    .invite-intro .intro-divider {
+      width: 70px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      margin: 0 auto 18px;
+      background-size: 200% 100%;
+      animation: shimmer 3.5s linear infinite;
+    }
+
+    .invite-intro p {
+      font-size: 18px;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+    /* --- end invitation intro text --- */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- First invitation card with main image + elegant text overlay -->
+    <div class="invitation reveal">
+      <div class="hero-wrapper">
+        <img src="verjn.png" alt="Invitation">
+      </div>
+    </div>
+
+    <!-- Invitation intro text -->
+    <div class="invite-intro reveal">
+      <div class="intro-divider"></div>
+      <p>Սիրով հրավիրում ենք Ձեզ մասնակցելու Միքայելի Մկրտության արարողությանը և նրա ծննդյան առաջին տարեդարձի տոնակատարությանը։</p>
+    </div>
+
+
+    <!-- Date section -->
+    <div class="date-section reveal">
+      <div class="baptism-date">10.10.28</div>
+      <div class="calendar">
+        <div class="month">Հոկտեմբեր</div>
+        <div class="weekdays">
+          <div>Կիր</div><div>Երկ</div><div>Երք</div><div>Չոր</div><div>Հնգ</div><div>Ուր</div><div>Շբթ</div>
+        </div>
+        <div class="dates">
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>
+            <div class="heart-wrapper">
+              <svg class="heart-svg" viewBox="0 0 60 60">
+                <path d="M30 52
+                  C10 35, 5 20, 20 15
+                  A10 10 0 0 1 30 20
+                  A10 10 0 0 1 40 15
+                  C55 20, 50 35, 30 52
+                  Z"
+                  fill="none"
+                  stroke="#000"
+                  stroke-dasharray="2,3"
+                  stroke-width="1"
+                />
+              </svg>
+              <div class="heart-text">10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Couple photo, moved here as its own framed card -->
+    <div class="final-frame photo-standalone reveal reveal-scale">
+      <img src="Miq.jfif" alt=" Miqayel" class="full-img" />
+    </div>
+
+    <!-- Church venue information -->
+    <div class="venue-invitation reveal">
+      <img src="ekexeci.png" alt="Եկեղեցի" class="icon-img" />
+      <div class="ceremony-title">Եկեղեցի</div>
+      <div class="venue-name"> Սուրբ Շողակաթ </div>
+      <div class="venue-name">Եկեղեցի</div>
+      <div class="address">
+        Մ․Նալբանդյան փողոց 58, Վաղարշապատ
+      </div>
+      <div class="time">15:00</div>
+      <a href="https://maps.app.goo.gl/DfpcB1HvgrqK57tLA" target="_blank" rel="noopener noreferrer" class="map-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        Տեսնել քարտեզում
+      </a>
+    </div>
+
+    <!-- Restaurant venue information -->
+    <div class="venue-invitation reveal">
+      <img src="bajak.png" alt="Հյուրասիրություն" class="icon-img" />
+      <div class="reception-title">Ռեստորան</div>
+      <div class="venue-name"> Lianna Garden Hall</div>
+      <div class="address">
+         Երիտասարդական 34․փ 
+      </div>
+      <div class="time">17:00</div>
+      <a href="https://maps.app.goo.gl/KTrjXpYACb6jB12e8" target="_blank" rel="noopener noreferrer" class="map-link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+        Տեսնել քարտեզում
+      </a>
+    </div>
+
+    <!-- Final photo and closing message (upgraded design) -->
+    <div class="invitation final-card reveal">
+      <div class="final-closing">
+        <div class="closing-divider"></div>
+        <div class="closing-text">
+          Սիրով սպասում ենք Ձեզ
+          <svg class="heart-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(10deg);">
+            <path d="M20.84 4.61c-1.54-1.3-3.77-1.3-5.31 0L12 8.09l-3.53-3.48c-1.54-1.3-3.77-1.3-5.31 0-1.55 1.31-1.55 3.43 0 4.74L12 21.35l8.84-11.99c1.55-1.31 1.55-3.43 0-4.75z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(function (el, i) {
+        el.style.transitionDelay = (i === 0 ? 0.1 : 0) + 's';
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+
+</html>
