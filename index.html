@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitation</title>
+  <title>Մկրտության և Ծննդյան հրավեր</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap');
 
-        @font-face {
+    @font-face {
       font-family: 'Vrdznagir';
       src: url('Vrdznagir.otf') format('opentype');
       font-weight: normal;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'Arti Regular';
+      src: url('Arti Regular.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-    
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -30,12 +39,26 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 40px;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    /* ===== ԲՈԼՈՐ ՀԻՄՆԱԿԱՆ ԲԼՈԿՆԵՐԻ ԿԵՆՏՐՈՆԱՑՈՒՄ ===== */
+    .invitation,
+    .date-section,
+    .invite-intro,
+    .venue-invitation,
+    .final-frame.photo-standalone,
+    .final-card {
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-sizing: border-box;
     }
 
     .invitation {
-      max-width: 600px;
-      width: 100%;
       background: rgba(255, 255, 255, 0.85);
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
@@ -50,109 +73,83 @@
       border-radius: 12px;
     }
 
-    /* --- New: overlay wrapper for the main image + invitation text --- */
+    /* ===== HERO / FIRST IMAGE ===== */
     .hero-wrapper {
       position: relative;
       width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
     }
 
     .hero-wrapper img {
       width: 100%;
+      max-width: 100%;
       height: auto;
       border-radius: 12px;
       display: block;
+      margin: 0 auto;
+      object-fit: cover;
+      object-position: center center;
     }
 
-    .hero-overlay-text {
-      position: absolute;
-      left: 50%;
-      bottom: 8%;
-      transform: translateX(-50%);
-      width: 88%;
-      text-align: center;
-      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
-      color: #fdf6e3;
-      text-shadow:
-        0 1px 3px rgba(0,0,0,0.75),
-        0 2px 10px rgba(0,0,0,0.55);
-    }
-
-    .hero-overlay-text .invite-lead {
-      font-size: 15px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #f4e2a8;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .hero-overlay-text .invite-main {
-      font-size: 22px;
-      line-height: 1.5;
-      font-weight: 600;
-      color: #fffdf7;
-    }
-
-    .hero-overlay-text .invite-main .highlight {
-      font-family: 'Great Vibes', 'Noto Sans Armenian', cursive;
-      font-size: 34px;
-      color: #f4e87c;
-      display: inline-block;
-      margin: 0 4px;
-    }
-
-    .hero-overlay-text .invite-divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #f4e87c, transparent);
-      margin: 12px auto;
-    }
-    /* --- end new styles --- */
-
+    /* ===== DATE SECTION ===== */
     .date-section {
       text-align: center;
-      padding-bottom: 20px;
-      max-width: 600px;
-      width: 100%;
+      padding: 10px 30px 30px;
       margin-bottom: 30px;
+      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
+      color: #4a3f30;
     }
 
     .baptism-date {
-      font-size: 1.1rem;
-      font-weight: 400;
-      letter-spacing: 4px;
-      color: #2c2c2c;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: #4a3f30;
       margin-bottom: 10px;
+      line-height: 1.8;
     }
 
     .calendar {
-      margin-top: 30px;
+      margin-top: 20px;
       font-size: 18px;
-      letter-spacing: 1px;
+      letter-spacing: 0.3px;
+      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
+      color: #4a3f30;
     }
 
     .calendar .month {
-      font-weight: bold;
-      font-size: 20px;
-      margin-bottom: 10px;
-      font-family: 'Dancing Script', cursive;
-      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 16px;
+      font-family: 'Arti Regular', sans-serif;
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.3px;
     }
 
     .calendar .weekdays {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      max-width: 420px;
+      width: 100%;
       margin: 0 auto 10px;
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Arti Regular', sans-serif;
       font-weight: 500;
+      font-size: 15px;
+      line-height: 1.8;
+      column-gap: 6px;
     }
 
     .calendar .dates {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      max-width: 420px;
+      width: 100%;
       margin: 0 auto;
+      font-size: 15px;
+      line-height: 1.8;
+      column-gap: 6px;
+      row-gap: 6px;
     }
 
     .dates > div {
@@ -173,18 +170,20 @@
 
     .heart-svg {
       position: absolute;
-      width: 100%;
-      height: 80%;
-      top: 5%;
-      left: 2%;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      height: auto;
       transform: translate(-50%, -50%);
       pointer-events: none;
+      z-index: 0;
+      animation: heartbeat 2.4s ease-in-out infinite;
+      transform-origin: center;
     }
 
     .heart-text {
       position: relative;
       z-index: 1;
-      font-weight: bold;
       font-size: 16px;
     }
 
@@ -208,7 +207,7 @@
     }
 
     .info {
-      font-family:'Vrdznagir';
+      font-family: 'Vrdznagir';
       font-size: 25px;
       letter-spacing: 1px;
       line-height: 1.6;
@@ -216,8 +215,6 @@
 
     .venue-invitation {
       background: white;
-      width: 100%;
-      max-width: 600px;
       padding: 60px 40px;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -225,7 +222,6 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 30px;
-      box-sizing: border-box;
     }
 
     .venue-invitation::before {
@@ -236,6 +232,52 @@
       right: 0;
       height: 3px;
       background: linear-gradient(90deg, #d4af37, #f4e87c, #d4af37);
+      z-index: 2;
+    }
+
+    /* ===== ԵԿԵՂԵՑՈՒ ԲԼՈԿԻ ՖՈՆ-ՆԿԱՐ ===== */
+.venue-invitation.church-block {
+  background-image: url("fon.jpg");
+  background-size: cover;
+  background-position: center 20%; /* ցածր թիվ = ավելի շատ երևում է վերևի հատվածը */
+}
+    /* Անկյունային նկարներ (հրեշտակներ) — ամբողջական, չկտրված */
+    .corner-photo {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      background: transparent;
+      border-radius: 0;
+      z-index: 3;
+      opacity: 0;
+      transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 1.1s ease;
+    }
+
+    .corner-photo.bottom-left {
+      bottom: 16px;
+      left: 16px;
+      transform: translateX(-140px) translateY(10px) rotate(-8deg);
+    }
+
+    .corner-photo.top-right {
+      top: 16px;
+      right: 16px;
+      transform: translateX(140px) translateY(-10px) rotate(8deg);
+    }
+
+    /* Երբ եկեղեցու բլոկը դառնում է տեսանելի՝ հրեշտակները սահում են իրենց տեղերը */
+    .venue-invitation.church-block.visible .corner-photo.bottom-left {
+      opacity: 1;
+      transform: translateX(0) translateY(0) rotate(0deg);
+      transition-delay: 0.35s;
+    }
+
+    .venue-invitation.church-block.visible .corner-photo.top-right {
+      opacity: 1;
+      transform: translateX(0) translateY(0) rotate(0deg);
+      transition-delay: 0.55s;
     }
 
     .icon-img {
@@ -244,20 +286,31 @@
       max-width: 80px;
       max-height: 80px;
       object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+
+    .venue-invitation > .ceremony-title,
+    .venue-invitation > .reception-title,
+    .venue-invitation > .venue-name,
+    .venue-invitation > .address,
+    .venue-invitation > .time,
+    .venue-invitation > a.map-link {
+      position: relative;
+      z-index: 2;
     }
 
     .ceremony-title, .reception-title {
-      font-family: 'Vrdznagir';
+      font-family: 'Arti Regular';
       font-size: 40px;
       font-style: italic;
       color: #8b7355;
       margin-bottom: 10px;
-      font-weight: 400;
+      font-weight: 300;
     }
 
     .venue-name {
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 15px;
       color: #333;
       margin-bottom: 5px;
       letter-spacing: 2px;
@@ -276,7 +329,6 @@
 
     .time {
       font-size: 28px;
-      font-weight: 700;
       color: #333;
       margin-bottom: 5px;
       font-family: 'Dancing Script', cursive;
@@ -317,17 +369,21 @@
     }
 
     .closing-text {
-      font-family: 'Vrdznagir';
-      font-size: 35px;
+      font-family: 'Arti Regular';
+      font-size: 20px;
       font-style: italic;
       color: #8b7355;
       margin-top: 20px;
       font-weight: 500;
     }
 
-    .heart-outline {
-      vertical-align: middle;
-      margin-left: 8px;
+    /* ===== ԱՆԻՄԱՑԻԱՆԵՐ ===== */
+    @keyframes heartbeat {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      15% { transform: translate(-50%, -50%) scale(1.15); }
+      30% { transform: translate(-50%, -50%) scale(1); }
+      45% { transform: translate(-50%, -50%) scale(1.1); }
+      60% { transform: translate(-50%, -50%) scale(1); }
     }
 
     @keyframes slideUp {
@@ -340,14 +396,14 @@
         transform: translateY(0);
       }
     }
- .script {
-  font-family: 'Vrdznagir';
-  font-size: 18px;
-  margin: 40px 0 5px;
-  text-align: center;
-}
 
-    /* --- Upgraded final photo & closing message section --- */
+    .script {
+      font-family: 'Vrdznagir';
+      font-size: 18px;
+      margin: 40px 0 5px;
+      text-align: center;
+    }
+
     .final-card {
       background: transparent;
       padding: 28px;
@@ -369,9 +425,6 @@
     }
 
     .final-frame.photo-standalone {
-      max-width: 600px;
-      width: 100%;
-      box-sizing: border-box;
       margin-bottom: 30px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
@@ -385,12 +438,6 @@
       height: 3px;
       background: linear-gradient(90deg, #d4af37, #f4e87c, #d4af37);
       z-index: 1;
-    }
-
-    .final-frame::after,
-    .final-frame .corner-tl,
-    .final-frame .corner-br {
-      content: '';
     }
 
     .final-frame img.full-img {
@@ -419,18 +466,14 @@
       letter-spacing: 0.5px;
     }
 
-    .final-closing .closing-sub {
-      font-family: 'Dancing Script', cursive;
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #b8975a;
-      margin-top: 6px;
+    /* Վերջին սրտիկը՝ ստատիկ, առանց heartbeat-ի */
+    .heart-outline {
+      vertical-align: middle;
+      margin-left: 8px;
+      transform: rotate(10deg);
+      flex-shrink: 0;
     }
-    /* --- end upgraded section --- */
 
-    /* --- Reveal-on-scroll animations for all cards --- */
     .reveal {
       opacity: 0;
       transform: translateY(45px);
@@ -451,30 +494,10 @@
       transform: translateY(0) scale(1);
     }
 
-    /* gentle heartbeat for heart icons */
-    .heart-outline,
-    .heart-svg {
-      animation: heartbeat 2.4s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    @keyframes heartbeat {
-      0%, 100% { transform: scale(1); }
-      15% { transform: scale(1.15); }
-      30% { transform: scale(1); }
-      45% { transform: scale(1.1); }
-      60% { transform: scale(1); }
-    }
-
-   
-    /* --- Invitation intro text --- */
     .invite-intro {
-      max-width: 600px;
-      width: 100%;
       text-align: center;
       padding: 10px 30px 30px;
-      box-sizing: border-box;
-      font-family: 'Noto Sans Armenian', 'Vrdznagir', sans-serif;
+      font-family: 'Arti Regular', sans-serif;
       color: #4a3f30;
     }
 
@@ -493,95 +516,345 @@
       letter-spacing: 0.3px;
       margin: 0;
     }
-    /* --- end invitation intro text --- */
+
+    .elegant-divider {
+      width: 40%;
+      max-width: 600px;
+      margin: 8px auto 28px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .elegant-divider .line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c8a96e, #e6d5b3, #c8a96e, transparent);
+      border-radius: 2px;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* ===== ԵՐԱԺՇՏՈՒԹՅԱՆ ԿՈՃԱԿ ===== */
+    .music-toggle {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.24);
+    }
+
+    .music-toggle svg {
+      width: 22px;
+      height: 22px;
+      fill: #d4af37;
+    }
+
+    .music-toggle .bar {
+      animation: musicBars 0.9s ease-in-out infinite;
+      transform-origin: bottom;
+    }
+
+    .music-toggle.playing .bar:nth-child(1) { animation-delay: 0s; }
+    .music-toggle.playing .bar:nth-child(2) { animation-delay: 0.15s; }
+    .music-toggle.playing .bar:nth-child(3) { animation-delay: 0.3s; }
+
+    .music-toggle:not(.playing) .bar {
+      animation: none;
+      transform: scaleY(0.4);
+    }
+
+    @keyframes musicBars {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
+    }
+
+    /* ===== ԾՆՈՂՆԵՐ / ՔԱՎՈՐ ԲԼՈԿ ===== */
+    .people-card {
+      text-align: center;
+      padding: 10px 20px 30px;
+    }
+
+    .people-card .people-title {
+      font-family: 'Arti Regular';
+      font-size: 26px;
+      font-style: italic;
+      color: #4a3f30;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .people-photo {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: none;
+      display: inline-block;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 12px;
+      }
+
+      .date-section {
+        padding: 12px 10px 28px;
+      }
+
+      .baptism-date {
+        font-size: 20px;
+        letter-spacing: 3px;
+        margin-bottom: 14px;
+      }
+
+      .calendar {
+        margin-top: 24px;
+      }
+
+      .calendar .month {
+        font-size: 22px;
+        margin-bottom: 18px;
+      }
+
+      .calendar .weekdays {
+        font-size: 14px;
+        column-gap: 4px;
+        margin-bottom: 12px;
+      }
+
+      .calendar .dates {
+        font-size: 18px;
+        column-gap: 4px;
+        row-gap: 8px;
+      }
+
+      .heart-text {
+        font-size: 18px;
+      }
+
+      .invite-intro {
+        padding: 10px 16px 28px;
+      }
+
+      .invite-intro p {
+        font-size: 17px;
+      }
+
+      .venue-invitation {
+        padding: 44px 22px;
+      }
+
+      .corner-photo {
+        width: 90px;
+        height: 90px;
+      }
+        .corner-photo.bottom-left {
+    bottom: 8px;
+    left: 5px;
+  }
+  .corner-photo.top-right {
+    top: 8px;
+    right: 5px;
+  }
+
+      .final-closing .closing-text {
+        font-size: 26px;
+      }
+
+      .people-card {
+        padding: 10px 12px 26px;
+      }
+
+      .people-card .people-title {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        padding: 16px 8px;
+      }
+
+      .calendar .weekdays {
+        font-size: 12px;
+        column-gap: 2px;
+      }
+
+      .calendar .dates {
+        font-size: 16px;
+        column-gap: 2px;
+        row-gap: 6px;
+      }
+
+      .heart-text {
+        font-size: 16px;
+      }
+
+      .venue-invitation {
+        padding: 32px 16px;
+      }
+
+      .corner-photo {
+        width: 90px;
+        height: 90px;
+      }
+            .corner-photo.bottom-left {
+    bottom: 8px;
+    left: 5px;
+  }
+  .corner-photo.top-right {
+    top: 8px;
+    right: 5px;
+  }
+
+    }
   </style>
 </head>
 <body>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="baptmus.m4a" type="audio/mpeg">
+  </audio>
+
+  <button id="musicToggle" class="music-toggle" aria-label="Երաժշտություն միացնել/անջատել">
+    <svg viewBox="0 0 24 24">
+      <rect class="bar" x="4" y="10" width="3" height="8" rx="1.5"></rect>
+      <rect class="bar" x="10.5" y="6" width="3" height="16" rx="1.5"></rect>
+      <rect class="bar" x="17" y="12" width="3" height="6" rx="1.5"></rect>
+    </svg>
+  </button>
+
   <div class="container">
     <!-- First invitation card with main image + elegant text overlay -->
     <div class="invitation reveal">
       <div class="hero-wrapper">
-        <img src="verjn.png" alt="Invitation">
+        <img src="Miq.jfif" alt="Miqayel">
       </div>
     </div>
 
     <!-- Invitation intro text -->
     <div class="invite-intro reveal">
-      <div class="intro-divider"></div>
-      <p>Սիրով հրավիրում ենք Ձեզ մասնակցելու Միքայելի Մկրտության արարողությանը և նրա ծննդյան առաջին տարեդարձի տոնակատարությանը։</p>
+      <p>Սիրով հրավիրում ենք Ձեզ մասնակցելու Արմենի և Անահիտի Մկրտության արարողությանը
     </div>
 
+    <!-- Simple elegant line divider (text ↔ calendar) -->
+    <div class="elegant-divider reveal">
+      <div class="line"></div>
+    </div>
 
-    <!-- Date section -->
-    <div class="date-section reveal">
-      <div class="baptism-date">10.10.28</div>
-      <div class="calendar">
-        <div class="month">Հոկտեմբեր</div>
-        <div class="weekdays">
-          <div>Կիր</div><div>Երկ</div><div>Երք</div><div>Չոր</div><div>Հնգ</div><div>Ուր</div><div>Շբթ</div>
-        </div>
-        <div class="dates">
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-          <div>
-            <div class="heart-wrapper">
-              <svg class="heart-svg" viewBox="0 0 60 60">
-                <path d="M30 52
-                  C10 35, 5 20, 20 15
-                  A10 10 0 0 1 30 20
-                  A10 10 0 0 1 40 15
-                  C55 20, 50 35, 30 52
-                  Z"
-                  fill="none"
-                  stroke="#000"
-                  stroke-dasharray="2,3"
-                  stroke-width="1"
-                />
-              </svg>
-              <div class="heart-text">10</div>
-            </div>
-          </div>
-        </div>
+<!-- Date section -->
+<div class="date-section reveal">
+  <div class="baptism-date">05/11/26</div>
+
+  <div class="calendar">
+    <div class="month">Նոյեմբեր</div>
+
+    <div class="weekdays">
+      <div>Կիր</div>
+      <div>Երկ</div>
+      <div>Երք</div>
+      <div>Չոր</div>
+      <div>Հնգ</div>
+      <div>Ուր</div>
+      <div>Շբթ</div>
+    </div>
+
+    <div class="dates">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+
+      <div class="heart-wrapper">
+        <svg class="heart-svg" viewBox="0 0 60 60">
+          <path d="M30 52
+            C10 35, 5 20, 20 15
+            A10 10 0 0 1 30 20
+            A10 10 0 0 1 40 15
+            C55 20, 50 35, 30 52
+            Z"
+            fill="none"
+            stroke="#000"
+            stroke-dasharray="2,3"
+            stroke-width="1"
+          />
+        </svg>
+        <div class="heart-text">5</div>
       </div>
+
+      <div>6</div>
+      <div>7</div>
     </div>
+  </div>
+</div>
 
     <!-- Couple photo, moved here as its own framed card -->
     <div class="final-frame photo-standalone reveal reveal-scale">
-      <img src="Miq.jfif" alt=" Miqayel" class="full-img" />
+      <img src="Miq.jfif" alt="Miqayel" class="full-img" />
+    </div>
+
+    <!-- Parents photo -->
+    <div class="people-card reveal">
+      <div class="people-title">Ծնողներ</div>
+      <img src="cnoxner.png" alt="Ծնողներ" class="people-photo" />
     </div>
 
     <!-- Church venue information -->
-    <div class="venue-invitation reveal">
+    <div class="venue-invitation church-block reveal">
+      <img src="https://uploads.onecompiler.io/43gpeysj6/1789292971870/angel1.png" alt="" class="corner-photo bottom-left" />
+      <img src="https://uploads.onecompiler.io/43gpeysj6/1789292975167/angel2.png" alt="" class="corner-photo top-right" />
       <img src="ekexeci.png" alt="Եկեղեցի" class="icon-img" />
       <div class="ceremony-title">Եկեղեցի</div>
-      <div class="venue-name"> Սուրբ Շողակաթ </div>
-      <div class="venue-name">Եկեղեցի</div>
+      <div class="venue-name">Սուրբ Աստվածածին եկեղեցի</div>
       <div class="address">
-        Մ․Նալբանդյան փողոց 58, Վաղարշապատ
-      </div>
+225 Armenak Armenakyan St
+</div>
       <div class="time">15:00</div>
-      <a href="https://maps.app.goo.gl/DfpcB1HvgrqK57tLA" target="_blank" rel="noopener noreferrer" class="map-link">
+      <a href="https://maps.app.goo.gl/aZAeV3aePQSHYAw88" target="_blank" rel="noopener noreferrer" class="map-link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
         </svg>
         Տեսնել քարտեզում
       </a>
+    </div>
+
+    <!-- Godparents photo -->
+    <div class="people-card reveal">
+      <div class="people-title">Քավոր և Քավորկին</div>
+      <img src="qavorner.png" alt="Քավոր և Քավորկին" class="people-photo" />
     </div>
 
     <!-- Restaurant venue information -->
-    <div class="venue-invitation reveal">
+    <div class="venue-invitation church-block reveal">
       <img src="bajak.png" alt="Հյուրասիրություն" class="icon-img" />
       <div class="reception-title">Ռեստորան</div>
-      <div class="venue-name"> Lianna Garden Hall</div>
+      <div class="venue-name">Հրաշք Այգի Ռեստորանային համալիր</div>
       <div class="address">
-         Երիտասարդական 34․փ 
+        Երիտասարդական 34․փ
       </div>
       <div class="time">17:00</div>
-      <a href="https://maps.app.goo.gl/KTrjXpYACb6jB12e8" target="_blank" rel="noopener noreferrer" class="map-link">
+      <a href="https://maps.app.goo.gl/WE7x9seDjxZm2ehW9" target="_blank" rel="noopener noreferrer" class="map-link">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
         </svg>
@@ -589,13 +862,13 @@
       </a>
     </div>
 
-    <!-- Final photo and closing message (upgraded design) -->
+    <!-- Final photo and closing message -->
     <div class="invitation final-card reveal">
       <div class="final-closing">
         <div class="closing-divider"></div>
         <div class="closing-text">
           Սիրով սպասում ենք Ձեզ
-          <svg class="heart-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(10deg);">
+          <svg class="heart-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.84 4.61c-1.54-1.3-3.77-1.3-5.31 0L12 8.09l-3.53-3.48c-1.54-1.3-3.77-1.3-5.31 0-1.55 1.31-1.55 3.43 0 4.74L12 21.35l8.84-11.99c1.55-1.31 1.55-3.43 0-4.75z"/>
           </svg>
         </div>
@@ -624,7 +897,67 @@
         observer.observe(el);
       });
     });
+
+    // ===== ԵՐԱԺՇՏՈՒԹՅՈՒՆ =====
+    document.addEventListener('DOMContentLoaded', function () {
+      var music = document.getElementById('bgMusic');
+      var toggleBtn = document.getElementById('musicToggle');
+      var userPaused = false;
+      var MUSIC_START_TIME = 5; // սկսել նվագարկումը 5-րդ վայրկյանից
+      var startTimeSet = false;
+
+      function applyStartTime() {
+        if (!startTimeSet) {
+          try {
+            music.currentTime = MUSIC_START_TIME;
+          } catch (e) {
+            // readyState-ը դեռ բավարար չէ, կփորձենք loadedmetadata-ով
+          }
+          startTimeSet = true;
+        }
+      }
+
+      music.addEventListener('loadedmetadata', applyStartTime);
+
+      function playMusic() {
+        applyStartTime();
+        var p = music.play();
+        if (p !== undefined) {
+          p.then(function () {
+            toggleBtn.classList.add('playing');
+          }).catch(function () {
+            // Browser blocked autoplay — will start on first tap/click below
+          });
+        }
+      }
+
+      // Փորձել ինքնաշխատ միացնել՝ մուտքից անմիջապես հետո
+      playMusic();
+
+      // Եթե բրաուզերը արգելափակել է autoplay-ը, միացնել առաջին հպումով/կտտոցով
+      function startOnFirstInteraction() {
+        if (!userPaused && music.paused) {
+          playMusic();
+        }
+        document.removeEventListener('click', startOnFirstInteraction);
+        document.removeEventListener('touchstart', startOnFirstInteraction);
+      }
+      document.addEventListener('click', startOnFirstInteraction, { once: true });
+      document.addEventListener('touchstart', startOnFirstInteraction, { once: true });
+
+      // Կոճակով ձեռքով միացնել/անջատել
+      toggleBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (music.paused) {
+          userPaused = false;
+          playMusic();
+        } else {
+          music.pause();
+          userPaused = true;
+          toggleBtn.classList.remove('playing');
+        }
+      });
+    });
   </script>
 </body>
-
 </html>
